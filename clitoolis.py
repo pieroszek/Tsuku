@@ -52,17 +52,14 @@ def createTask(strn):
     showList()
 
 def remTask(num):
-    data = getData()
-    parseData(data)
-    emptyData()
     index = 0
     for x in List:
-        if x == num or str(index) == num:
+        i = str(index)
+        if x == num or i == num: 
             List.remove(x)
-        index + 1
-    writeData()
-    showList()
-
+            break
+        index = index + 1
+    
 
 def showData():
     with open(data_file_path , 'r') as f:
@@ -84,17 +81,29 @@ def main():
 
     match args.action:
         case "c":
+            print("Task list")
             createTask(args.name)
         case "l":
+            print("Task list")
             #showData()
             data = getData()
             parseData(data)
             showList()
 
 
-        case "r":
 
-            remTask(args.name)
+        case "r":
+            print("Curr List")
+            data = getData()
+            parseData(data)
+            showList()
+            toDel = input("delete: ")
+            print("Modified List")
+            emptyData()
+            remTask(toDel)
+            writeData()
+            showList()
+
         case _:
             print("default case")
 main()
