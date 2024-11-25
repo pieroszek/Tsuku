@@ -21,8 +21,11 @@ def parseArgs():
 
 
 def showItems():
+    index = 0
     for item in Items:
-        print(item)
+        print(index, "- ", item)
+        index = index + 1 
+
 
 def showArgs():
     for arg in Args:
@@ -31,8 +34,6 @@ def showArgs():
 def create():
     newItem = ""   
     if Args[0] == createVar:
-        if len(Args) < 2:
-            newItem = Args[1]
         if len(Args) > 2:
             i = 1
             for i in range (1,len(Args)):
@@ -40,26 +41,35 @@ def create():
                     newItem = Args[1]
                 else:
                     newItem = newItem + " " + Args[i]
+        else:
+            newItem = Args[1]
         Items.append(newItem)
         showItems()
 
 def remove():
     print("**curr List**")
     showItems()
-    if Args[0] == remVar:
+    if len(Args) == 1:
+        delItem = input("rem item: ")
+        i = 0
+        for x in Items:
+            if x == delItem or str(i) == delItem:
+                Items.remove(x)
+                break
+            i = i + 1
+    elif Args[0] == remVar:
         for x in Items:
             if x == Args[1]:
                 Items.remove(x)
-        print("**new List**")
-        showItems()
+    print("**new List**")
+    showItems()
 
 def list():
     print("**List**")
-    if Args[0] == listVar:
-        for x in Items:
-            print(x)
+    showItems()
 
 def argsToItems():
+
     for arg in Args:
         Items.append(arg)
 
