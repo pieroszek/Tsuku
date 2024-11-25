@@ -11,16 +11,17 @@ If anyone is intrested, i highly advise configuring it to your liking.
 
 Commands:
 
-`t` is the base command,
 
-`t l` lists all the tasks
 
-`t c name` c is for create, name is the name of the task
+`l` lists all the tasks
 
-`t r name/index` r is for remove, using either the name or the index that is show in the list
+`c name` c is for create, name is the name of the task
+
+`r ` r is for remove, asks for input, taking index or name of item
 
 
 Download:
 
 For now you gotta download the .py and data.txt,
 put them into the same dir since the .py writes and reads from the txt file.
+
