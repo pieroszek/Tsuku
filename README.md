@@ -15,9 +15,10 @@ Commands:
 
 `l` lists all the tasks
 
-`c name` c is for create, name is the name of the task
+`c` is for create, example `c newitem` 
 
-`r ` r is for remove, asks for input, taking index or name of item
+`r` is for remove, asks for input, 
+prints curr list and asks for either index or item name to delete it and shows new list
 
 
 Download:
