@@ -44,13 +44,17 @@ def create():
         showItems()
 
 def remove():
+    print("**curr List**")
+    showItems()
     if Args[0] == remVar:
         for x in Items:
             if x == Args[1]:
                 Items.remove(x)
+        print("**new List**")
         showItems()
 
 def list():
+    print("**List**")
     if Args[0] == listVar:
         for x in Items:
             print(x)
