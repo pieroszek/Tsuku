@@ -15,6 +15,7 @@ List = []
 def getData():
     with open(data_file_path ) as file:
         data = file.readline().strip()
+        print(data)
     return data
 
 def parseData(data):
@@ -71,13 +72,16 @@ def main():
     parser = argparse.ArgumentParser(description="A simple terminal tool.")
     parser.add_argument("action", help="The action to perform", choices=["c","l","r"])
 
-    parser.add_argument("name", help="task name", nargs="?")
+    
+    parser.add_argument("name", help="task name", nargs="?" )
 
-    args = parser.parse_args()
+   
 
 
     if args.action == "c" and not args.name:
         parser.error("ERR")
+    
+    if args.-s 
 
     match args.action:
         case "c":
