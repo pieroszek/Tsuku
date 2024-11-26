@@ -3,6 +3,11 @@ import argparse
 import sys
 import os
 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+data_file_path = os.path.join(script_dir, 'data.txt')
+
+
 Args = []
 Items = ["empty"]
 
@@ -14,13 +19,13 @@ listVar = "l"
 def getFile():
     data = ""
     try: 
-        with open("data.txt", 'r') as file :
+        with open(data_file_path, 'r') as file :
             data = file.readline()
             data.strip()
             return data
-    except FileExistsError or FileNotFoundError:
+    except FileExistsError or FileNotFoundError :
         print("no data file, created one")
-        with open("data.txt", 'x') as file:
+        with open(data_file_path, 'x') as file:
             data = file.readlines()
             return data
 
@@ -43,7 +48,7 @@ def readFile(data):
 
 def clearFile():
     try:
-        with open("data.txt", 'w') as file:
+        with open(data_file_path, 'w') as file:
             pass
     except:
         print("ckear file brok")
@@ -52,7 +57,7 @@ def clearFile():
 def writeFile():
     strnToAdd = ""    
     try:
-        with open("data.txt", 'w') as file:
+        with open(data_file_path,'w') as file:
             for x in Items:
                 strnToAdd = strnToAdd + x + '|'
             file.write(strnToAdd)
